@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +10,26 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="charts.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#main").load("schimmel.php");
+            setInterval(function() {
+                $("#main").load("schimmel.php");
+                $( "#warning" ).load("index.php #warning");
+            }, 4000);
+        });
+
+
+    </script>
 </head>
-<body class="card text-center">
-	<div class="card-header">Championkwekerij "De Schimmel"</div>
-	<div class="card-body container">
-		<div id="chart_temp" class="row"></div>
-	</div>
+<body>
+    <div class="card text-center">
+        <div id="main" style="display: none"></div>
+        <div class="card-header">Championkwekerij "De Schimmel"</div>
+        <div class="card-body container">
+            <div id="chart_temp" class="row"></div>
+        </div>
+    </div>
+    <div class="text-center" id="warning" style="color:red;font-size: 20px"></div>
 </body>
 </html>

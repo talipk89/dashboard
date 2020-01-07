@@ -1,6 +1,10 @@
 google.charts.load('current', {'packages':['gauge']});
 google.charts.setOnLoadCallback(drawChart);
 
+
+
+
+
 function drawChart()
 {
 	var options = {
@@ -27,9 +31,19 @@ function drawChart()
 				$.each(input, function(key, val) {
 					data.setValue(i, 1, val);
 					i++;
+					if (val < 16 || val > 22 )
+					{
+						document.getElementById("warning").innerHTML = "Waarschuwing: Temperatuur";
+					}
 				});
+
+
 				chart.draw(data, options);
 			});
 		}, 3000);
-	});
+	})
+	;
+
 }
+
+
